@@ -3,10 +3,12 @@ using Microsoft.Extensions.DependencyInjection;
 using PortifolioCore.Auxiliary;
 using PortifolioCore.Auxiliary.Mappings;
 using PortifolioCore.Entities.Models.GeneralSettingsModels;
+using PortifolioCore.Interfaces;
 using PortifolioInfrastructure.Data.APIs;
 using PortifolioInfrastructure.Data.DataBases;
+using PortifolioServices.MainServices;
 
-namespace PortifolioInfrastructure.DependencyInjection
+namespace PortifolioInjections
 {
     public class InjectionConfiguration
     {
@@ -32,7 +34,7 @@ namespace PortifolioInfrastructure.DependencyInjection
 
         public static void ConfigureDependenciesService(IServiceCollection serviceCollection)
         {
-            //serviceCollection.AddScoped<IUserService, UserService>();
+            serviceCollection.AddScoped<IHomeService, HomeService>();
         }
 
         public static void ConfigureDependenciesRepository(IServiceCollection serviceCollection)

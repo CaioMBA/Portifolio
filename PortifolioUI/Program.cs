@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Options;
 using PortifolioCore.Entities.Models.GeneralSettingsModels;
-using PortifolioInfrastructure.DependencyInjection;
+using PortifolioInjections;
 using PortifolioUI.Components;
 
 var builder = WebApplication.CreateBuilder(args);

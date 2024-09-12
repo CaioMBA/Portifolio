@@ -1,6 +1,41 @@
-html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+@font-face {
+    font-family: 'Kadwa';
+    src: url('assets/fonts/Kadwa-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
+
+@font-face {
+    font-family: 'Kadwa';
+    src: url('assets/fonts/Kadwa-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Handjet';
+    src: url('assets/fonts/Handjet-VariableFont_ELGR,ELSH,wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --primary-color: #9350ff;
+    --secondary-color: #c77b40;
+    --tertiary-color: #107690;
+    --black-color: #0d1117;
+    --white-color: #eef0f2;
+    --dark-grey-color: #292929;
+    --light-grey-color: #cecccc;
+    --font-title: "Handjet", sans-serif;
+    --font-text: "Kadwa", sans-serif;
+}
+
+html, body {
+    scroll-behavior: smooth;
+    font-family: var(--font-text);
+}
+
 
 a, .btn-link {
     color: #006bb7;
@@ -13,7 +48,7 @@ a, .btn-link {
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 .content {
