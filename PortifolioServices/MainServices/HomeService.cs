@@ -17,9 +17,6 @@ namespace PortifolioServices.MainServices
             _appSettings = appSettings;
         }
 
-        public string? ReturnAppName()
-        {
-            return _appSettings.AppName;
-        }
+
     }
 }

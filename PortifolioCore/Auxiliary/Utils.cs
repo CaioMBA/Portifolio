@@ -15,6 +15,11 @@ namespace PortifolioCore.Auxiliary
             _appSettings = appSettings;
         }
 
+        public AppSettingsModel GetSettings()
+        {
+            return _appSettings;
+        }
+
         public DataBaseConnection GetDataBase(string DataBaseID)
         {
             DataBaseConnection? Conection = (from v in _appSettings.DataBaseConnections

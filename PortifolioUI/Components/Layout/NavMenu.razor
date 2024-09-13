@@ -1,12 +1,16 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
+﻿<div class="top-row ps-3 navbar navbar-dark" style="background-color: var(--black-color);">
     <div class="container-fluid">
-        <a class="navbar-brand" href="">PortifolioUI</a>
+        <a class="navbar-brand" href="">
+            <img src="assets/icons/portifolio.png" alt="Brand icon" />
+            <h2>@_appSettings.AppName</h2>
+        </a>
     </div>
 </div>
 
 <input type="checkbox" title="Navigation menu" class="navbar-toggler" />
 
-<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
+<div class="nav-scrollable" style="background-color: var(--black-color);
+                                   border-right: solid 1px var(--primary-color);" onclick="document.querySelector('.navbar-toggler').click()">
     <nav class="flex-column">
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
