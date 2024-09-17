@@ -1,0 +1,39 @@
+﻿
+.about-content {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.about-text {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+    .about-text p {
+        font-size: 16px;
+        line-height: 25px;
+        color: var(--white-color);
+    }
+
+    .about-text h3 {
+        font-size: 24px;
+        margin-bottom: 15px;
+        font-weight: 700;
+        color: var(--white-color);
+    }
+
+        .about-text h3 span {
+            color: var(--primary-color);
+        }
+
+.personal-info {
+    flex: 0 0 60%;
+    max-width: 60%;
+    margin-top: 40px
+}
+
+.skills {
+    flex: 0 0 40%;
+    max-width: 40%;
+    margin-top: 40px
+}

@@ -1,25 +1,4 @@
-﻿.main-container {
-    display: flex;
-    width: 100%;
-    min-height: 100%;
-    margin: auto;
-    color: var(--white-color);
-}
-
-    .main-container ul {
-        list-style: none;
-    }
-
-.main-row {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-left: -15px;
-    margin-right: -15px;
-    position: relative;
-}
-
-.home-info {
+﻿.home-info {
     flex: 0 0 60%;
     max-width: 60%;
     padding-left: 15px;
