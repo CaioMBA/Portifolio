@@ -35,6 +35,7 @@ namespace PortifolioInjections
         public static void ConfigureDependenciesService(IServiceCollection serviceCollection)
         {
             serviceCollection.AddScoped<IHomeService, HomeService>();
+            serviceCollection.AddScoped<IAboutServices, AboutService>();
         }
 
         public static void ConfigureDependenciesRepository(IServiceCollection serviceCollection)

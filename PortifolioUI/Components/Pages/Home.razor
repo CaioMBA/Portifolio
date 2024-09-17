@@ -1,16 +1,22 @@
 ﻿@page "/"
-@using PortifolioCore.Interfaces
-@inject IHomeService _service
+@inject IHomeService _service;
 
 
 
 <PageTitle>Home</PageTitle>
-
-<h1>Hello, world!</h1>
-
-Welcome to your new app, @_appSettings.AppName
+<link href="style/Home.css" rel="stylesheet" />
 
 
-@code {
-
-}
+<div class="main-container">
+    <ul class="main-row">
+        <li class="home-info">
+            <h3 class="introduction">Hi, I'm <span class="name">Caio Manoel Bezerra de Araujo</span></h3>
+            <h3 class="profession">I'm a <span class="typing">Software Engineer</span></h3>
+            <p>I'm a software Developer with extensive experience for over 5 years. My expertise is to understand the business logic, improve it's performance, and build a system from the ground</p>
+            <a href="contact" class="button hire-me">Hire me</a>
+        </li>
+        <li class="home-img">
+            <img src="assets/images/profile-image.jpeg" alt="Profile Image" />
+        </li>
+    </ul>
+</div>

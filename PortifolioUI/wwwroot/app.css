@@ -1,3 +1,4 @@
+/*#region imports*/
 @font-face {
     font-family: 'Kadwa';
     src: url('assets/fonts/Kadwa-Regular.ttf') format('truetype');
@@ -19,6 +20,14 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Clicker Script';
+    src: url('assets/fonts/ClickerScript-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+/*#endregion imports*/
+
 :root {
     --primary-color: #8A2BE2;
     --secondary-color: #FFD700;
@@ -33,6 +42,17 @@
     --light-grey-color: #cecccc;
     --font-title: "Handjet", sans-serif;
     --font-text: "Kadwa", sans-serif;
+    --cursive-text: "Clicker Script", cursive;
+}
+
+* {
+    outline: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+::before, after {
+    box-sizing: border-box;
 }
 
 html, body {
@@ -42,11 +62,11 @@ html, body {
 
 body {
     background-color: var(--black-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    height: 100svh;
 }
-
-    body article {
-        color: var(--primary-color);
-    }
 
     body h1, h2, h3, h4 {
         color: var(--white-color);
@@ -54,25 +74,182 @@ body {
         font-weight: 600;
     }
 
-.navbar-brand img {
-    max-width: 3svw;
-    max-height: 3svh;
-    color: var(--white-color);
-    filter: invert(100%);
+a {
+    text-decoration: none;
 }
 
-.navbar-brand {
+.page main article {
+    color: var(--primary-color);
+    margin-left: 20svw;
+    min-height: 100svh;
     display: flex;
-    justify-content: space-evenly;
+    opacity: 1;
+    justify-content: center;
 }
 
-.top-row a img {
-    max-width: 5svw;
-    max-height: 5svh;
+
+
+/*#region side-bar*/
+.side-bar {
+    width: 20svw;
+    background-color: var(--black-color);
+    position: fixed;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border-right: 1px solid var(--dark-grey-color);
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+    .side-bar .brand-icon {
+        position: absolute;
+        top: 8svh;
+        font-size: 30px;
+        text-transform: capitalize;
+    }
+
+        .side-bar .brand-icon a {
+            color: var(--white-color);
+            font-family: var(--font-title);
+            font-weight: 700;
+            padding: 20px 20px;
+            font-size: 30px;
+            letter-spacing: 5px;
+            position: relative;
+            text-decoration: none;
+        }
+
+            .side-bar .brand-icon a::before {
+                content: '';
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                border-bottom: 5px solid var(--primary-color);
+                border-left: 5px solid var(--primary-color);
+                bottom: 0;
+                left: 0;
+            }
+
+            .side-bar .brand-icon a::after {
+                content: '';
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                border-top: 5px solid var(--primary-color);
+                border-right: 5px solid var(--primary-color);
+                top: 0;
+                right: 0;
+            }
+
+            .side-bar .brand-icon a span {
+                font-family: var(--cursive-text);
+                font-size: 40px;
+            }
+
+
+    .side-bar .navigation-toggler {
+        height: 40px;
+        width: 45px;
+        border: 1px solid var(--dark-grey-color);
+        cursor: pointer;
+        position: fixed;
+        left: 21svw;
+        top: 20px;
+        border-radius: 5px;
+        background: var(--light-grey-color);
+        display: none;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .side-bar .navigation-toggler span {
+            height: 2px;
+            width: 18px;
+            background: var(--primary-color);
+            display: inline-block;
+            position: relative;
+        }
+
+            .side-bar .navigation-toggler span::before {
+                content: '';
+                height: 2px;
+                width: 18px;
+                background: var(--primary-color);
+                position: absolute;
+                top: -6px;
+                left: 0;
+            }
+
+            .side-bar .navigation-toggler span::after {
+                content: '';
+                height: 2px;
+                width: 18px;
+                background: var(--primary-color);
+                position: absolute;
+                top: 6px;
+                left: 0;
+            }
+
+
+    .side-bar .navigation-list {
+        list-style: none;
+        margin-top: 5svh;
+    }
+
+        .side-bar .navigation-list li {
+            margin-bottom: 20px;
+            display: block;
+        }
+
+            .side-bar .navigation-list li .nav-link {
+                font-size: 16px;
+                font-weight: 600;
+                display: block;
+                border-bottom: 1px solid var(--dark-grey-color);
+                color: var(--white-color);
+                padding: 5px 15px;
+            }
+
+                .side-bar .navigation-list li .nav-link:hover {
+                    color: var(--primary-color);
+                    transform: scale(1.05);
+                    transition: all 0.5s ease;
+                }
+
+                .side-bar .navigation-list li .nav-link span {
+                    margin-right: 15px;
+                }
+
+                .side-bar .navigation-list li .nav-link.active {
+                    color: var(--primary-color);
+                    transition: color 0.5s;
+                }
+
+/*#endregion side-bar*/
+
+
+.button {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 12px 35px;
     color: var(--white-color);
-    filter: invert(100%);
+    border-radius: 40px;
+    display: inline-block;
+    white-space: nowrap;
+    border: none;
+    background: var(--primary-color);
+    transition: all 0.3s ease;
 }
 
+    .button:hover {
+        transform: scale(1.05);
+        color: var(--secondary-color);
+    }
+
+/*#region blazor-default*/
 a, .btn-link {
     color: var(--blue-color);
 }
@@ -84,7 +261,7 @@ a, .btn-link {
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem var(--white-color), 0 0 0 0.25rem #258cfb;
 }
 
 .content {
@@ -104,7 +281,7 @@ h1:focus {
 }
 
 .validation-message {
-    color: var();
+    color: var(--green-color);
 }
 
 .blazor-error-boundary {
@@ -120,3 +297,4 @@ h1:focus {
 .darker-border-checkbox.form-check-input {
     border-color: var(--light-grey-color);
 }
+/*#endregion blazor-default*/

@@ -1,28 +1,42 @@
-﻿<div class="top-row ps-3 navbar navbar-dark" style="background-color: var(--black-color);">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">
-            <img src="assets/icons/portifolio.png" alt="Brand icon" />
-            <h2>@_appSettings.AppName</h2>
+﻿<nav class="side-bar">
+    <div class="brand-icon">
+        <a href="">
+            <span>C</span>aio
         </a>
     </div>
-</div>
 
-<input type="checkbox" title="Navigation menu" class="navbar-toggler" />
+    <div class="navigation-toggler"><span></span></div>
 
-<div class="nav-scrollable" style="background-color: var(--black-color);
-                                   border-right: solid 1px var(--primary-color);" onclick="document.querySelector('.navbar-toggler').click()">
-    <nav class="flex-column">
-        <div class="nav-item px-3">
+    <ul class="navigation-list">
+        <li>
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
+                <span class="fa fa-house" aria-hidden="true">&nbsp&nbsp</span> Home
             </NavLink>
-        </div>
-
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter
+        </li>
+        <li>
+            <NavLink class="nav-link" href="about">
+                <span class="fa fa-user" aria-hidden="true">&nbsp&nbsp</span> About
             </NavLink>
-        </div>
-    </nav>
-</div>
-
+        </li>
+        <li>
+            <NavLink class="nav-link" href="services">
+                <span class="fa fa-list" aria-hidden="true">&nbsp&nbsp</span> Services
+            </NavLink>
+        </li>
+        <li>
+            <NavLink class="nav-link" href="portfolio">
+                <span class="fa fa-briefcase" aria-hidden="true">&nbsp&nbsp</span> Portfolio
+            </NavLink>
+        </li>
+        <li>
+            <NavLink class="nav-link" href="cover_letter">
+                <span class="fa fa-solid fa-envelope" aria-hidden="true">&nbsp&nbsp</span> Cover Letter
+            </NavLink>
+        </li>
+        <li>
+            <NavLink class="nav-link" href="contact">
+                <span class="fa fa-comments" aria-hidden="true">&nbsp&nbsp</span> Contact
+            </NavLink>
+        </li>
+    </ul>
+</nav>
