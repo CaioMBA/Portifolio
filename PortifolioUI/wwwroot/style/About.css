@@ -32,8 +32,164 @@
     margin-top: 40px
 }
 
+.info-item {
+    flex: 0 0 50%;
+    max-width: 50%;
+    margin-left: -15px;
+}
+
+    .info-item p {
+        font-weight: 600;
+        padding: 10px 0;
+        font-size: 16px;
+        color: var(--white-color);
+        border-bottom: 1px solid var(--dark-grey-color);
+    }
+
+        .info-item p span {
+            font-weight: 400;
+            color: var(--primary-color);
+            margin-left: 4px;
+            display: inline-block;
+        }
+
+.buttons {
+    margin-top: 30px;
+}
+
+    .buttons .button {
+        margin-right: 15px;
+        margin-top: 10px;
+    }
+
 .skills {
     flex: 0 0 40%;
     max-width: 40%;
     margin-top: 40px
+}
+
+.skill-item {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-bottom: 25px;
+}
+
+    .skill-item h5 {
+        line-height: 40px;
+        font-weight: 600;
+        font-size: 60px;
+        font-size: 16px;
+        color: var(--white-color);
+        text-transform: capitalize;
+    }
+
+    .skill-item .progressing {
+        background-color: var(--white-color);
+        height: 7px;
+        border-radius: 4px;
+        width: 100%;
+        position: relative;
+    }
+
+        .skill-item .progressing .progress-in {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            border-radius: 4px;
+            background-color: var(--primary-color);
+        }
+
+        .skill-item .progressing .skill-percent {
+            font-weight: 400;
+            position: absolute;
+            right: 0;
+            top: -40px;
+            line-height: 40px;
+            color: var(--primary-color);
+        }
+
+.education, .experience {
+    flex: 0 0 50%;
+    max-width: 50%;
+    margin-top: 30px;
+}
+
+h3.title {
+    font-size: 24px;
+    margin-bottom: 30px;
+    font-weight: 700;
+    color: var(--white-color);
+}
+
+.timeline-box {
+    flex: 0 0 100%;
+    max-width: 100%;
+    color: var(--black-color);
+}
+
+.timeline {
+    background-color: var(--white-color);
+    padding: 30px 15px;
+    border: 1px solid var(--dark-grey-color);
+    border-radius: 10px;
+    width: 100%;
+    position: relative;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 37px;
+    padding-bottom: 50px;
+    color: var(--black-color);
+}
+
+    .timeline-item:last-child {
+        padding-bottom: 0;
+    }
+
+    .timeline-item::before {
+        content: '';
+        width: 1px;
+        position: absolute;
+        height: 100%;
+        left: 7px;
+        top: 0;
+        background-color: var(--primary-color);
+    }
+
+.circle-dot {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+}
+
+.timeline-date {
+    font-weight: 400;
+    font-size: 14px;
+    margin-bottom: 12px;
+    color: var(--black-color);
+}
+
+    .timeline-date .fa {
+        margin-right: 5px;
+    }
+
+h4.timeline-title {
+    color: var(--black-color);
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-transform: capitalize;
+}
+
+.timeline-text {
+    line-height: 24px;
+    font-size: 16px;
+    text-align: justify;
+    color: var(--black-color);
 }

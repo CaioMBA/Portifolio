@@ -6,6 +6,7 @@ using PortifolioCore.Entities.Models.GeneralSettingsModels;
 using PortifolioCore.Interfaces;
 using PortifolioInfrastructure.Data.APIs;
 using PortifolioInfrastructure.Data.DataBases;
+using PortifolioInfrastructure.Data.DataBases.SqlServer;
 using PortifolioServices.MainServices;
 
 namespace PortifolioInjections
@@ -42,6 +43,7 @@ namespace PortifolioInjections
         {
             serviceCollection.AddTransient<ApiDefaultAccess>();
             serviceCollection.AddTransient<DataBaseDefaultAccess>();
+            serviceCollection.AddTransient<AboutRepository>();
         }
 
         public static void ConfigureDependenciesExtras(IServiceCollection serviceCollection)

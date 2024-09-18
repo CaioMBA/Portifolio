@@ -1,5 +1,6 @@
 ﻿@page "/about"
 @rendermode InteractiveServer
+@using PortifolioCore.Entities.Models.AboutModels;
 @inject IAboutServices _service;
 
 <PageTitle>About</PageTitle>
@@ -20,15 +21,91 @@
         </ul>
         <ul class="main-row">
             <li class="personal-info">
-                info
+                <ul class="main-row">
+                    <li class="info-item">
+                        <p>Birthday: <span>31 oct 2002</span></p>
+                    </li>
+                    <li class="info-item">
+                        <p>Age: <span>21</span></p>
+                    </li>
+                    <li class="info-item">
+                        <p>WebSite: <span>https://github.com/OFA-Tech</span></p>
+                    </li>
+                    <li class="info-item">
+                        <p>Email: <span>caiombaraujo@gmail.com</span></p>
+                    </li>
+                    <li class="info-item">
+                        <p>Degree: <span>Computer Engineer</span></p>
+                    </li>
+                    <li class="info-item">
+                        <p>Phone: <span>+55(11)95253-1011</span></p>
+                    </li>
+                    <li class="info-item">
+                        <p>City: <span>São Paulo, SP, Brazil</span></p>
+                    </li>
+                    <li class="info-item">
+                        <p>Freelance: <span>Available</span></p>
+                    </li>
+                </ul>
+                <ul class="main-row">
+                    <li class="buttons">
+                        <a href="" class="button">Download CV</a>
+                        <a href="contact" class="button hire-me">Hire me</a>
+                    </li>
+                </ul>
             </li>
             <li class="skills">
-                skill
+                <ul class="main-row">
+                    <li class="skill-item">
+                        <h5>dotNet</h5>
+                        <div class="progressing">
+                            <div class="progress-in" style="width: 90%;"></div>
+                            <div class="skill-percent">90%</div>
+                        </div>
+                    </li>
+                    @skills
+                </ul>
+            </li>
+        </ul>
+        <ul class="main-row">
+            <li class="education">
+                <h3 class="title">Education</h3>
+                <ul class="main-row">
+                    <li class="timeline-box">
+                        <ul class="timeline shadow-dark">
+                            <li class="timeline-item">
+                                <div class="circle-dot" />
+                                <h3 class="timeline-date">
+                                    <i class="fa fa-calendar"></i> 2021 - 2026
+                                </h3>
+                                <h4 class="timeline-title">Barchelors in Computer Engineering</h4>
+                                <p class="timeline-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et iaculis libero, id maximus purus. Cras tincidunt neque dui, at ultricies mi interdum et.</p>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="experience">
+                <h3 class="title">Experience</h3>
+                <ul class="main-row">
+                    <li class="timeline-box">
+                        <ul class="timeline shadow-dark">
+                            <li class="timeline-item">
+                                <div class="circle-dot" />
+                                <h3 class="timeline-date">
+                                    <i class="fa fa-calendar"></i> 2021 - 2024
+                                </h3>
+                                <h4 class="timeline-title"> MindLog: Soluções Inteligentes Ltda</h4>
+                                <p class="timeline-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et iaculis libero, id maximus purus. Cras tincidunt neque dui, at ultricies mi interdum et.</p>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </li>
         </ul>
     </div>
 </div>
 
 @code {
-
+    private String skills => _service.getSkills();
 }

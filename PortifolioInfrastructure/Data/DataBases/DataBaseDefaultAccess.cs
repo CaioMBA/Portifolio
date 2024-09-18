@@ -82,7 +82,7 @@ namespace PortifolioInfrastructure.Data.DataBases
         }
 
 
-        public async Task<T?> QueryFirstOrDefault<T>(string sQuery, object parameter, DataBaseConnection connection)
+        public async Task<T?> QueryFirstOrDefault<T>(string sQuery, object? parameter, DataBaseConnection connection)
         {
             using (var _DBConnection = conectar(connection))
             {
@@ -90,7 +90,7 @@ namespace PortifolioInfrastructure.Data.DataBases
             }
         }
 
-        public async Task<List<T>?> Query<T>(string sQuery, object parameter, DataBaseConnection connection)
+        public async Task<List<T>?> Query<T>(string sQuery, object? parameter, DataBaseConnection connection)
         {
             using (var _DBConnection = conectar(connection))
             {
