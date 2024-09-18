@@ -29,7 +29,7 @@
                         <p>Age: <span>21</span></p>
                     </li>
                     <li class="info-item">
-                        <p>WebSite: <span>https://github.com/OFA-Tech</span></p>
+                        <p>WebSite: <a href="https://github.com/OFA-Tech" class="button">OFA-Tech GitHub</a></p>
                     </li>
                     <li class="info-item">
                         <p>Email: <span>caiombaraujo@gmail.com</span></p>
@@ -56,13 +56,6 @@
             </li>
             <li class="skills">
                 <ul class="main-row">
-                    <li class="skill-item">
-                        <h5>dotNet</h5>
-                        <div class="progressing">
-                            <div class="progress-in" style="width: 90%;"></div>
-                            <div class="skill-percent">90%</div>
-                        </div>
-                    </li>
                     @skills
                 </ul>
             </li>
@@ -107,5 +100,5 @@
 </div>
 
 @code {
-    private String skills => _service.getSkills();
+    private MarkupString skills => new MarkupString(_service.getSkills());
 }

@@ -43,6 +43,7 @@
         padding: 10px 0;
         font-size: 16px;
         color: var(--white-color);
+        max-width: 90%;
         border-bottom: 1px solid var(--dark-grey-color);
     }
 
@@ -51,6 +52,12 @@
             color: var(--primary-color);
             margin-left: 4px;
             display: inline-block;
+        }
+
+        .info-item p a.button {
+            padding: 0 8.75px;
+            font-weight: 400;
+            margin-left: 5px;
         }
 
 .buttons {
@@ -65,7 +72,7 @@
 .skills {
     flex: 0 0 40%;
     max-width: 40%;
-    margin-top: 40px
+    margin-top: 40px;
 }
 
 .skill-item {
