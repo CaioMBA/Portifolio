@@ -1,9 +1,12 @@
-﻿using PortifolioCore.Entities.Models.AboutModels;
+﻿using PortifolioCore.Entities.DTOs.AboutDTOs;
+using PortifolioCore.Entities.Models.AboutModels;
 
 namespace PortifolioCore.Interfaces
 {
     public interface IAboutServices
     {
-        String getSkills();
+        List<SkillModel> getSkills();
+        InformationModel getInfo();
+        ExperieceDTO getExperiences();
     }
 }

@@ -16,9 +16,28 @@ namespace PortifolioInfrastructure.Data.DataBases.SqlServer
             _connection = _utils.GetDataBase("Default");
         }
 
-        public List<SkillModel>? getSkills()
+        public List<SkillModel>? GetSkills()
         {
             return _db.Query<SkillModel>(@"SELECT Name, Level FROM Skills ORDER BY Level DESC", null, _connection).Result;
+        }
+
+        public InformationModel? GetInformation()
+        {
+            return _db.QueryFirstOrDefault<InformationModel>(@"SELECT 
+                                                                FORMAT(Birthday, 'dd MMM yyyy') AS Birthday, 
+                                                                (DATEDIFF(MONTH, Birthday, CAST(GETUTCDATE() AS DATE)) / 12) AS Age, 
+                                                                Website, 
+                                                                Email, 
+                                                                Degree,
+                                                                Phone, 
+                                                                Location, 
+                                                                IIF(Freelance = 1, 'Available', 'Not-Available') AS Freelance
+                                                               FROM AboutInformations", null, _connection).Result;
+        }
+
+        public List<ExperienceModel>? GetExperiences()
+        {
+            return _db.Query<ExperienceModel>(@"SELECT Name, Description, Year(StartDate) StartDate, Year(ISNULL(EndDate, GETUTCDATE())) EndDate, Type FROM Experiences", null, _connection).Result;
         }
     }
 }

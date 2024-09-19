@@ -1,6 +1,7 @@
 ﻿@page "/about"
 @rendermode InteractiveServer
 @using PortifolioCore.Entities.Models.AboutModels;
+@using PortifolioCore.Entities.DTOs.AboutDTOs;
 @inject IAboutServices _service;
 
 <PageTitle>About</PageTitle>
@@ -23,28 +24,28 @@
             <li class="personal-info">
                 <ul class="main-row">
                     <li class="info-item">
-                        <p>Birthday: <span>31 oct 2002</span></p>
+                        <p>Birthday: <span>@info.Birthday</span></p>
                     </li>
                     <li class="info-item">
-                        <p>Age: <span>21</span></p>
+                        <p>Age: <span>@info.Age</span></p>
                     </li>
                     <li class="info-item">
-                        <p>WebSite: <a href="https://github.com/OFA-Tech" class="button">OFA-Tech GitHub</a></p>
+                        <p>WebSite: <a href="@info.Website" class="button">OFA-Tech GitHub</a></p>
                     </li>
                     <li class="info-item">
-                        <p>Email: <span>caiombaraujo@gmail.com</span></p>
+                        <p>Email: <span>@info.Email</span></p>
                     </li>
                     <li class="info-item">
-                        <p>Degree: <span>Computer Engineer</span></p>
+                        <p>Degree: <span>@info.Degree</span></p>
                     </li>
                     <li class="info-item">
-                        <p>Phone: <span>+55(11)95253-1011</span></p>
+                        <p>Phone: <span>@info.Phone</span></p>
                     </li>
                     <li class="info-item">
-                        <p>City: <span>São Paulo, SP, Brazil</span></p>
+                        <p>City: <span>@info.Location</span></p>
                     </li>
                     <li class="info-item">
-                        <p>Freelance: <span>Available</span></p>
+                        <p>Freelance: <span>@info.Freelance</span></p>
                     </li>
                 </ul>
                 <ul class="main-row">
@@ -56,7 +57,16 @@
             </li>
             <li class="skills">
                 <ul class="main-row">
-                    @skills
+                    @foreach (SkillModel skill in Skills)
+                    {
+                        <li class="skill-item">
+                            <h5>@skill.Name</h5>
+                            <div class="progressing">
+                                <div class="progress-in" style="width: @skill.Level%;"></div>
+                                <div class="skill-percent">@skill.Level%</div>
+                            </div>
+                        </li>
+                    }
                 </ul>
             </li>
         </ul>
@@ -66,14 +76,17 @@
                 <ul class="main-row">
                     <li class="timeline-box">
                         <ul class="timeline shadow-dark">
-                            <li class="timeline-item">
-                                <div class="circle-dot" />
-                                <h3 class="timeline-date">
-                                    <i class="fa fa-calendar"></i> 2021 - 2026
-                                </h3>
-                                <h4 class="timeline-title">Barchelors in Computer Engineering</h4>
-                                <p class="timeline-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et iaculis libero, id maximus purus. Cras tincidunt neque dui, at ultricies mi interdum et.</p>
-                            </li>
+                            @foreach (ExperienceModel experience in experiences.Education)
+                            {
+                                <li class="timeline-item">
+                                    <div class="circle-dot" />
+                                    <h3 class="timeline-date">
+                                        <i class="fa fa-calendar"></i> @experience.StartDate - @experience.EndDate
+                                    </h3>
+                                    <h4 class="timeline-title">@experience.Name</h4>
+                                    <p class="timeline-text">@experience.Description</p>
+                                </li>
+                            }
                         </ul>
                     </li>
                 </ul>
@@ -83,14 +96,17 @@
                 <ul class="main-row">
                     <li class="timeline-box">
                         <ul class="timeline shadow-dark">
-                            <li class="timeline-item">
-                                <div class="circle-dot" />
-                                <h3 class="timeline-date">
-                                    <i class="fa fa-calendar"></i> 2021 - 2024
-                                </h3>
-                                <h4 class="timeline-title"> MindLog: Soluções Inteligentes Ltda</h4>
-                                <p class="timeline-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et iaculis libero, id maximus purus. Cras tincidunt neque dui, at ultricies mi interdum et.</p>
-                            </li>
+                            @foreach (ExperienceModel experience in experiences.Job)
+                            {
+                                <li class="timeline-item">
+                                    <div class="circle-dot" />
+                                    <h3 class="timeline-date">
+                                        <i class="fa fa-calendar"></i> @experience.StartDate - @experience.EndDate
+                                    </h3>
+                                    <h4 class="timeline-title">@experience.Name</h4>
+                                    <p class="timeline-text">@experience.Description</p>
+                                </li>
+                            }
                         </ul>
                     </li>
                 </ul>
@@ -100,5 +116,8 @@
 </div>
 
 @code {
-    private MarkupString skills => new MarkupString(_service.getSkills());
+    //private MarkupString skills => new MarkupString(_service.getSkills());
+    private List<SkillModel> Skills => _service.getSkills();
+    private InformationModel info => _service.getInfo();
+    private ExperieceDTO experiences => _service.getExperiences();
 }

@@ -29,17 +29,23 @@
 /*#endregion imports*/
 
 :root {
-    --primary-color: #8A2BE2;
-    --secondary-color: #FFD700;
-    --tertiary-color: #FF6347;
-    --blue-color: #107690;
-    --green-color: #60ac56;
-    --yellow-color: #f0a500;
-    --red-color: #8d2020;
-    --black-color: #0d1117;
-    --white-color: #eef0f2;
-    --dark-grey-color: #292929;
-    --light-grey-color: #cecccc;
+    /* Core colors #9B30FF*/
+    --primary-color: #9B30FF; /* Lighter, more vibrant purple (Amethyst) for better visibility */
+    --secondary-color: #FFD700; /* Metallic Gold */
+    --accent-color: #FF6347; /* Coral remains */
+    /* Supporting colors */
+    --blue-color: #3A6EA5; /* Subtle blue */
+    --green-color: #4CAF50; /* Modern green */
+    --yellow-color: #FFC107; /* Softer yellow */
+    --red-color: #8B0000; /* Wine-colored */
+    --wine-color: #6C2C2C; /* Deep wine */
+    /* Neutrals */
+    --black-color: #050505; /* Black background */
+    --navbar-black-color: #1a1a1a;
+    --white-color: #F8F9FA; /* Softer white */
+    --dark-grey-color: #2C2C2C; /* Dark grey */
+    --light-grey-color: #D3D3D3; /* Light grey */
+    /* Typography */
     --font-title: "Handjet", sans-serif;
     --font-text: "Kadwa", sans-serif;
     --cursive-text: "Clicker Script", cursive;
@@ -96,7 +102,7 @@ a {
 /*#region side-bar*/
 .side-bar {
     width: 20svw;
-    background-color: var(--black-color);
+    background-color: var(--navbar-black-color);
     position: fixed;
     z-index: 10;
     display: flex;
@@ -201,6 +207,7 @@ a {
     .side-bar .navigation-list {
         list-style: none;
         margin-top: 5svh;
+        font-family: var(--font-title);
     }
 
         .side-bar .navigation-list li {
