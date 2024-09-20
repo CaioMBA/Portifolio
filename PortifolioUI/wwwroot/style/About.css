@@ -2,6 +2,7 @@
 .about-content {
     flex: 0 0 100%;
     max-width: 100%;
+    margin-right: 15px;
 }
 
 .about-text {
