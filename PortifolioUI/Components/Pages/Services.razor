@@ -1,5 +1,6 @@
 ﻿@page "/services"
 @rendermode InteractiveServer
+@using PortifolioCore.Entities.Models.ServicesModels;
 @inject IServicesService _service;
 
 <PageTitle>Services</PageTitle>
@@ -12,54 +13,21 @@
         </li>
     </ul>
     <ul class="main-row">
-        <li class="service-item">
-            <div class="service-item-inner">
-                <div class="icon">
-                    <i class="fa fa-mobile-alt"></i>
+        @foreach (AvailableServiceModel service in _availableServices)
+        {
+            <li class="service-item">
+                <div class="service-item-inner">
+                    <div class="icon">
+                        <i class="@service.Icon"></i>
+                    </div>
+                    <h4>@service.Name</h4>
+                    <p>@service.Description</p>
                 </div>
-                <h4>Mobile Development</h4>
-                <p>lorem123</p>
-            </div>
-        </li>
-        <li class="service-item">
-            <div class="service-item-inner">
-                <div class="icon">
-                    <i class="fa fa-laptop-code"></i>
-                </div>
-                <h4>Mobile Development</h4>
-                <p>lorem123</p>
-            </div>
-        </li>
-        <li class="service-item">
-            <div class="service-item-inner">
-                <div class="icon">
-                    <i class="fa fa-code"></i>
-                </div>
-                <h4>Mobile Development</h4>
-                <p>lorem123</p>
-            </div>
-        </li>
-        <li class="service-item">
-            <div class="service-item-inner">
-                <div class="icon">
-                    <i class="fa fa-search"></i>
-                </div>
-                <h4>Mobile Development</h4>
-                <p>lorem123</p>
-            </div>
-        </li>
-        <li class="service-item">
-            <div class="service-item-inner">
-                <div class="icon">
-                    <i class="fa fa-bullhorn"></i>
-                </div>
-                <h4>Mobile Development</h4>
-                <p>lorem123</p>
-            </div>
-        </li>
+            </li>
+        }
     </ul>
 </div>
 
 @code {
-
+    private List<AvailableServiceModel> _availableServices => _service.getServices();
 }

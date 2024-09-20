@@ -18,7 +18,7 @@
     }
     public class ApiConnection
     {
-        public string? ApiID { get; set; }
+        public required string ApiID { get; set; }
         public required string Url { get; set; }
         public required string Type { get; set; }
     }

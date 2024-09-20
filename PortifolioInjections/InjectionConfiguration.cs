@@ -45,6 +45,7 @@ namespace PortifolioInjections
             serviceCollection.AddTransient<ApiDefaultAccess>();
             serviceCollection.AddTransient<DataBaseDefaultAccess>();
             serviceCollection.AddTransient<AboutRepository>();
+            serviceCollection.AddTransient<ServicesRepository>();
         }
 
         public static void ConfigureDependenciesExtras(IServiceCollection serviceCollection)

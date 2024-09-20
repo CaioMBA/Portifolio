@@ -23,7 +23,7 @@ namespace PortifolioCore.Auxiliary
         public DataBaseConnection GetDataBase(string DataBaseID)
         {
             DataBaseConnection? Conection = (from v in _appSettings.DataBaseConnections
-                                             where v.DataBaseID == DataBaseID
+                                             where v.DataBaseID.ToUpper() == DataBaseID.ToUpper()
                                              select v).FirstOrDefault();
             if (Conection == null)
             {
@@ -36,7 +36,7 @@ namespace PortifolioCore.Auxiliary
         public ApiConnection GetApi(string ApiID)
         {
             ApiConnection? Conection = (from v in _appSettings.ApiConnections
-                                        where v.ApiID == ApiID
+                                        where v.ApiID.ToUpper() == ApiID.ToUpper()
                                         select v).FirstOrDefault();
             if (Conection == null)
             {
