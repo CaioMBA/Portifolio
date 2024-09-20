@@ -32,7 +32,8 @@
             background-color: var(--primary-color);
         }
 
-            .service-item-inner:hover .icon .fa {
+            .service-item-inner:hover .icon .fa,
+            .service-item-inner:hover .icon .fa-solid {
                 font-size: 25px;
                 color: var(--secondary-color)
             }
@@ -47,7 +48,8 @@
         transition: all 0.3s ease;
     }
 
-        .service-item-inner .icon .fa {
+        .service-item-inner .icon .fa,
+        .service-item-inner .icon .fa-solid {
             font-size: 40px;
             line-height: 60px;
             color: var(--primary-color);
@@ -58,5 +60,4 @@
         font-size: 16px;
         color: var(--black-color);
         line-height: 25px;
-
     }
