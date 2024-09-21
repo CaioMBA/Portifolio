@@ -1,0 +1,38 @@
+﻿@page "/portfolio"
+@rendermode InteractiveServer
+@using PortifolioCore.Entities.Models.PortfolioModels;
+
+@inject IPortfolioService _service;
+
+<PageTitle>Portfolio</PageTitle>
+<link href="style/Portfolio.css" rel="stylesheet" />
+
+<div class="main-container">
+    <ul class="main-row">
+        <li class="section-title">
+            <h2>Portifolio</h2>
+        </li>
+    </ul>
+    <ul class="main-row">
+        <li class="portfolio-heading">
+            <h2>My last Projects:</h2>
+        </li>
+    </ul>
+    <ul class="main-row">
+        @foreach (ProjectModel project in _projects)
+        {
+            <li class="portfolio-item">
+                <div class="portfolio-item-inner shadow-dark">
+                    <a class="portfolio-img" href="@project.Link">
+                        <img src="@project.Image" alt="@project.Name" loading="eager" />
+                    </a>
+                </div>
+            </li>
+        }
+    </ul>
+</div>
+
+
+@code {
+    private List<ProjectModel> _projects => _service.getProjects();
+}

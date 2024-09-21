@@ -1,0 +1,35 @@
+﻿.main-container {
+    padding-bottom: 40px;
+    height: 100%;
+}
+
+.portfolio-heading {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-bottom: 40px;
+}
+
+    .portfolio-heading h2 {
+        color: var(--white-color);
+        font-weight: 500;
+    }
+
+.portfolio-item {
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+    margin-bottom: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.portfolio-item-inner {
+    border: 6px solid var(--navbar-black-color);
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.portfolio-img img {
+    max-width: 100%;
+    display: block;
+}
