@@ -1,0 +1,93 @@
+﻿.contact-title {
+    color: var(--primary-color);
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.contact-sub-title {
+    color: var(--white-color);
+    text-align: center;
+    font-size: 15px;
+    margin-bottom: 60px;
+}
+
+.contact-info-item {
+    flex: 0 0 25%;
+    max-width: 25%;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+    .contact-info-item h4 {
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--white-color);
+        text-transform: capitalize;
+        margin: 15px 0 5px;
+    }
+
+    .contact-info-item p {
+        font-size: 16px;
+        line-height: 25px;
+        font-weight: 400;
+        color: var(--white-color);
+    }
+
+    .contact-info-item .icon {
+        display: inline-block;
+    }
+
+        .contact-info-item .icon .fa,
+        .contact-info-item .icon .fa-brands {
+            font-size: 25px;
+            color: var(--primary-color);
+        }
+
+.contact-form {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.colx-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.colx-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.form-item {
+    margin-bottom: 30px;
+}
+
+.forms-control {
+    width: 100%;
+    height: 50px;
+    border-radius: 25px;
+    background: var(--white-color);
+    border: 1px solid var(--navbar-black-color);
+    padding: 10px 25px;
+    font-size: 15px;
+    color: var(--black-color);
+    transition: all 0.3s ease;
+}
+
+    .forms-control:focus {
+        box-shadow: 0 0 20px rgba(48,46,77, 0.15);
+    }
+
+textarea.forms-control {
+    height: 140px;
+}
+
+.contact-form .button {
+    height: 50px;
+    padding: 0 50px;
+}

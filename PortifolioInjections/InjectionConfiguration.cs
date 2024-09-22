@@ -39,6 +39,7 @@ namespace PortifolioInjections
             serviceCollection.AddScoped<IAboutServices, AboutService>();
             serviceCollection.AddScoped<IServicesService, ServicesService>();
             serviceCollection.AddScoped<IPortfolioService, PortfolioService>();
+            serviceCollection.AddScoped<IContactService, ContactService>();
         }
 
         public static void ConfigureDependenciesRepository(IServiceCollection serviceCollection)
@@ -48,6 +49,7 @@ namespace PortifolioInjections
             serviceCollection.AddTransient<AboutRepository>();
             serviceCollection.AddTransient<ServicesRepository>();
             serviceCollection.AddTransient<PortfolioRepository>();
+            serviceCollection.AddTransient<ContactRepository>();
         }
 
         public static void ConfigureDependenciesExtras(IServiceCollection serviceCollection)
