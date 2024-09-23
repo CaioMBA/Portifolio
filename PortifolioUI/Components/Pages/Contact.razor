@@ -2,6 +2,7 @@
 @rendermode InteractiveServer
 @using PortifolioCore.Entities.Models.ContactModels;
 @using PortifolioCore.Entities.Models.AboutModels;
+@using System.ComponentModel.DataAnnotations
 @inject IContactService _service;
 @inject IAboutServices _aboutService;
 
@@ -19,80 +20,119 @@
     <h4 class="contact-sub-title">I'm at your services!</h4>
     <ul class="main-row">
         <li class="contact-info-item">
-            <div class="icon">
+            <a class="icon" href="https://wa.me/@(OnlyPhoneNumber())">
                 <i class="fa-brands fa-whatsapp"></i>
-            </div>
+            </a>
             <h4>Message me on</h4>
             <p>@_information.Phone</p>
         </li>
         <li class="contact-info-item">
-            <div class="icon">
+            <a class="icon" href="https://maps.google.com/?q=@_information.Location">
                 <i class="fa fa-map-marker-alt"></i>
-            </div>
+            </a>
             <h4>Office</h4>
-            <p>São Paulo</p>
+            <p>@_information.Location</p>
         </li>
         <li class="contact-info-item">
-            <div class="icon">
+            <a class="icon" href="mailto:@_information.Email">
                 <i class="fa fa-envelope"></i>
-            </div>
+            </a>
             <h4>Email</h4>
             <p>@_information.Email</p>
         </li>
         <li class="contact-info-item">
-            <div class="icon">
+            <a class="icon" href="@_information.Website">
                 <i class="fa fa-globe-europe"></i>
-            </div>
+            </a>
             <h4>Website</h4>
             <p>@_information.Website</p>
         </li>
     </ul>
     <h3 class="contact-title">Send me an email</h3>
     <h4 class="contact-sub-title">I'm very responsive to messages</h4>
+
     <ul class="main-row">
         <li>
-            <form class="contact-form" @onsubmit="Submit">
+            <EditForm Model="@form" class="contact-form" OnValidSubmit="Submit">
+                <DataAnnotationsValidator />
                 <ol class="main-row">
                     <li class="form-item colx-6">
                         <div class="forms-group">
-                            <input type="text" class="forms-control" @bind=_FormName placeholder="Name" />
+                            <input type="text" class="forms-control" @bind="@form.Name" placeholder="Name" />
+                            <ValidationMessage style="color: var(--red-color); font-size: 12px;" For="@(() => form.Name)" />
                         </div>
                     </li>
                     <li class="form-item colx-6">
                         <div class="forms-group">
-                            <input type="email" class="forms-control" @bind=_FormAddress placeholder="Email" />
+                            <input type="email" class="forms-control" @bind="@form.Address" placeholder="Email" />
+                            <ValidationMessage style="color: var(--red-color); font-size: 12px;" For="@(() => form.Address)" />
                         </div>
                     </li>
                     <li class="form-item colx-12">
                         <div class="forms-group">
-                            <input type="text" class="forms-control" @bind=_FormSubject placeholder="Subject" />
+                            <input type="text" class="forms-control" @bind="@form.Subject" placeholder="Subject" />
+                            <ValidationMessage style="color: var(--red-color); font-size: 12px;" For="@(() => form.Subject)" />
                         </div>
                     </li>
                     <li class="form-item colx-12">
                         <div class="forms-group">
-                            <textarea name="" class="forms-control" @bind=_FormMessage id="" placeholder="Message"></textarea>
+                            <textarea class="forms-control" @bind="@form.Message" placeholder="Message"></textarea>
+                            <ValidationMessage style="color: var(--red-color); font-size: 12px;" For="@(() => form.Message)" />
                         </div>
                     </li>
                     <li class="form-item colx-12">
                         <button type="submit" class="button">Send</button>
                     </li>
                 </ol>
-            </form>
+            </EditForm>
         </li>
     </ul>
 </div>
 
 
 @code {
+    private class FormContactModel
+    {
+        [Required(ErrorMessage = "Name is a required field.")]
+        public string? Name { get; set; }
+
+        [Required(ErrorMessage = "Email is a required field.")]
+        [EmailAddress(ErrorMessage = "Invalid email format.")]
+        public string? Address { get; set; }
+
+        [Required(ErrorMessage = "Subject is a required field.")]
+        public string? Subject { get; set; }
+
+        [Required(ErrorMessage = "Message is a required field.")]
+        public string? Message { get; set; }
+    }
+
+    FormContactModel form = new FormContactModel();
+
     private InformationModel _information => _aboutService.getInfo();
 
-    private string? _FormName;
-    private string? _FormAddress;
-    private string? _FormSubject;
-    private string? _FormMessage;
-
-    private void Submit()
+    private async Task Submit()
     {
-        _service.SendMail(_information.Email!, _FormName!, _FormAddress!, _FormSubject!, _FormMessage!);
+        try
+        {
+            _service.SendMail(_information.Email!, form.Name!, form.Address!, form.Subject!, form.Message!);
+
+            ClearForm();
+        }
+        catch (Exception ex)
+        {
+            await _JS.InvokeVoidAsync("alert", ex.Message);
+        }
+    }
+
+    private void ClearForm()
+    {
+        form = new FormContactModel();
+    }
+
+    private string OnlyPhoneNumber()
+    {
+        return _information.Phone!.Aggregate("", (current, c) => char.IsDigit(c) ? current + c : current);
     }
 }
+

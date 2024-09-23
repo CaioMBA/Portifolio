@@ -42,7 +42,13 @@
         .contact-info-item .icon .fa-brands {
             font-size: 25px;
             color: var(--primary-color);
+            transition: all 0.3s ease;
         }
+
+            .contact-info-item .icon .fa:hover,
+            .contact-info-item .icon .fa-brands:hover {
+                color: var(--secondary-color);
+            }
 
 .contact-form {
     flex: 0 0 100%;

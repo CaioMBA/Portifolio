@@ -1,0 +1,45 @@
+﻿@page "/cover-letter"
+@rendermode InteractiveServer
+
+
+
+<PageTitle>Cover Letter</PageTitle>
+<link href="style/CoverLetter.css" rel="stylesheet" />
+
+<div class="main-container">
+    <div class="cover-letter">
+        <div class="cover-letter-header">
+            <p class="date">@DateTime.UtcNow.ToString("dddd dd MMMM yyyy")</p>
+            <div class="company-info">
+                <p class="company">[Company Name]</p>
+                <p class="address">[Company Address]</p>
+                <p class="city">[City, State ZIP Code]</p>
+            </div>
+        </div>
+
+        <div class="cover-letter-body">
+            <p class="salutation">Dear [Recipient Name],</p>
+            <p>
+                I am writing to express my interest in the <strong>[Job Title]</strong> position at <strong>[Company Name]</strong>. With a solid background in [Your Field] and a passion for [related field or skill], I believe I am well-equipped to contribute to your team.
+            </p>
+            <p>
+                I am a [Your Profession] with over [Number] years of experience specializing in [Your Specialization]. At <strong>[Current Company]</strong>, I have successfully led [specific project or responsibility], resulting in [specific achievement or outcome]. My expertise in [key skills or technologies] has enabled me to [mention a positive impact you’ve made].
+            </p>
+            <p>
+                I am particularly excited about this opportunity because of [specific reason you are interested in the company or position]. I am eager to bring my experience in [mention specific skills or technologies] to [Company Name] and help drive [mention any goals or areas where you believe you can contribute].
+            </p>
+            <p>
+                I look forward to discussing how my background, skills, and passion align with the goals of your team. Thank you for considering my application. I am available for an interview at your earliest convenience and can be reached at [Your Phone Number] or via email at [Your Email].
+            </p>
+        </div>
+
+        <div class="cover-letter-footer">
+            <p class="closing">Sincerely,</p>
+            <p class="signature">Caio Manoel Bezerra de Araujo</p>
+        </div>
+    </div>
+</div>
+<!--<iframe class="cover-letter" src="https://drive.google.com/file/d/18QSlJBAXar8V0TYUzezELWe18na5ziVa/preview" frameborder="0"></iframe>-->
+@code {
+
+}

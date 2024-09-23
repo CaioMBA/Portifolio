@@ -1,0 +1,52 @@
+﻿.cover-letter {
+    max-width: 800px;
+    justify-self:center;
+    padding: 30px;
+    background-color: var(--white-color);
+    border-radius: 5px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    color: var(--black-color);
+    font-family: 'Arial', sans-serif;
+}
+
+.cover-letter-header,
+.cover-letter-footer {
+    margin-bottom: 20px;
+}
+
+.cover-letter h1 {
+    color: var(--navbar-black-color);
+    font-size: 28px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.date, .company-info {
+    font-size: 14px;
+    color: #666;
+}
+
+.cover-letter-body {
+    margin-top: 20px;
+}
+
+    .cover-letter-body p {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 15px;
+    }
+
+    .cover-letter-body strong {
+        color: var(--black-color);
+    }
+
+.salutation, .closing {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.signature {
+    font-size: 16px;
+    font-weight: bold;
+}

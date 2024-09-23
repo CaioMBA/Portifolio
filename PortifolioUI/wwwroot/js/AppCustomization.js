@@ -4,7 +4,9 @@
 
 //#region TypeAnymation
 function enablingTypingAnimation() {
-    var typed = new Typed(".typing", {
+    var typed = undefined;
+
+    typed = new Typed(".typing", {
         strings: ["Software Engineer", "Software Architect", "Tech Leader"],
         typeSpeed: 20,
         backSpeed: 50,

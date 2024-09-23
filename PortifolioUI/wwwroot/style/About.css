@@ -205,6 +205,11 @@ h4.timeline-title {
 /*#region Responsive*/
 
 @media (max-width: 1199px) {
+    .info-item p a.button {
+        display: block;
+        text-align: center;
+    }
+
     .info-item p span {
         display: block;
         margin-left: 0;
