@@ -2,7 +2,7 @@
     enablingTypingAnimation();
 });
 
-/*#region TypeAnymation */
+//#region TypeAnymation
 function enablingTypingAnimation() {
     var typed = new Typed(".typing", {
         strings: ["Software Engineer", "Software Architect", "Tech Leader"],
@@ -12,9 +12,9 @@ function enablingTypingAnimation() {
     });
 }
 
-/*#endregion TypeAnymation*/
+//#endregion TypeAnymation
 
-/*#region side-bar */
+//#region side-bar
 const navToggleButton = document.querySelector(".side-bar .navigation-toggler");
 const sideBar = document.querySelector(".side-bar");
 
@@ -27,4 +27,4 @@ function sideBarSectionTogglerBtn() {
     navToggleButton.classList.toggle("open");
 }
 
-/*#endregion side-bar */
+//#endregion side-bar
