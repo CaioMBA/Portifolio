@@ -33,3 +33,22 @@
     max-width: 100%;
     display: block;
 }
+
+
+/*#region Responsive*/
+
+@media (max-width: 991px) {
+    .portfolio-item {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 767px) {
+    .portfolio-item {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+/*#endregion Responsive*/

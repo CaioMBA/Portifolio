@@ -61,3 +61,21 @@
         color: var(--black-color);
         line-height: 25px;
     }
+
+/*#region Responsive*/
+
+@media (max-width: 991px) {
+    .service-item {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 767px) {
+    .service-item {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+/*#endregion Responsive*/

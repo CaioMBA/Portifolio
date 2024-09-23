@@ -67,3 +67,18 @@
         border-radius: 5px;
         max-height: 400px;
     }
+
+/*#region Responsive*/
+
+@media (max-width: 991px) {
+    .home-info {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .home-img {
+        display: none;
+    }
+}
+
+/*#endregion Responsive*/

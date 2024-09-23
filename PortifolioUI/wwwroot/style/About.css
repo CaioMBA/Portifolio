@@ -201,3 +201,24 @@ h4.timeline-title {
     text-align: justify;
     color: var(--black-color);
 }
+
+/*#region Responsive*/
+
+@media (max-width: 1199px) {
+    .info-item p span {
+        display: block;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .skills,
+    .personal-info,
+    .education,
+    .experience {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+/*#endregion Responsive*/
