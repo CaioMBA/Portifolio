@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="Entities\Enums\" />
-    <Folder Include="Entities\Models\ContactModels\" />
   </ItemGroup>
 
   <ItemGroup>
