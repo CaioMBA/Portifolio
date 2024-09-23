@@ -20,6 +20,8 @@ namespace PortifolioInfrastructure.Data.APIs.RestfulRepository
         {
             ApiConnection endpoint = _utils.GetApi("Notifications");
 
+            string body = model.ToJson();
+
             ApiRequestModel request = new ApiRequestModel()
             {
                 Url = endpoint.Url,
@@ -27,7 +29,7 @@ namespace PortifolioInfrastructure.Data.APIs.RestfulRepository
                 Auth = null,
                 Headers = null,
                 TimeOut = 10,
-                Body = model.ToJson()
+                Body = body
             };
 
             var response = _api.ApiRequest(request);

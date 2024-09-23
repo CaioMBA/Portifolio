@@ -5,6 +5,7 @@ using PortifolioCore.Auxiliary.Mappings;
 using PortifolioCore.Entities.Models.GeneralSettingsModels;
 using PortifolioCore.Interfaces;
 using PortifolioInfrastructure.Data.APIs;
+using PortifolioInfrastructure.Data.APIs.RestfulRepository;
 using PortifolioInfrastructure.Data.DataBases;
 using PortifolioInfrastructure.Data.DataBases.SqlServer;
 using PortifolioServices.MainServices;
@@ -44,12 +45,18 @@ namespace PortifolioInjections
 
         public static void ConfigureDependenciesRepository(IServiceCollection serviceCollection)
         {
-            serviceCollection.AddTransient<ApiDefaultAccess>();
+            #region DataBase
             serviceCollection.AddTransient<DataBaseDefaultAccess>();
             serviceCollection.AddTransient<AboutRepository>();
             serviceCollection.AddTransient<ServicesRepository>();
             serviceCollection.AddTransient<PortfolioRepository>();
             serviceCollection.AddTransient<ContactRepository>();
+            #endregion
+
+            #region API
+            serviceCollection.AddTransient<ApiDefaultAccess>();
+            serviceCollection.AddTransient<NotifyDAO>();
+            #endregion
         }
 
         public static void ConfigureDependenciesExtras(IServiceCollection serviceCollection)

@@ -1,6 +1,9 @@
 ﻿@page "/contact"
 @rendermode InteractiveServer
+@using PortifolioCore.Entities.Models.ContactModels;
+@using PortifolioCore.Entities.Models.AboutModels;
 @inject IContactService _service;
+@inject IAboutServices _aboutService;
 
 <PageTitle>Contact</PageTitle>
 <link href="style/Contact.css" rel="stylesheet" />
@@ -20,7 +23,7 @@
                 <i class="fa-brands fa-whatsapp"></i>
             </div>
             <h4>Message me on</h4>
-            <p>+55 (11) 95253-1011</p>
+            <p>@_information.Phone</p>
         </li>
         <li class="contact-info-item">
             <div class="icon">
@@ -34,50 +37,62 @@
                 <i class="fa fa-envelope"></i>
             </div>
             <h4>Email</h4>
-            <p>caiombaraujo@gmail.com</p>
+            <p>@_information.Email</p>
         </li>
         <li class="contact-info-item">
             <div class="icon">
                 <i class="fa fa-globe-europe"></i>
             </div>
             <h4>Website</h4>
-            <p>https://github.com/OFA-Tech</p>
+            <p>@_information.Website</p>
         </li>
     </ul>
     <h3 class="contact-title">Send me an email</h3>
     <h4 class="contact-sub-title">I'm very responsive to messages</h4>
     <ul class="main-row">
-        <li class="contact-form">
-            <ul class="main-row">
-                <li class="form-item colx-6">
-                    <div class="forms-group">
-                        <input type="text" class="forms-control" placeholder="Name" />
-                    </div>
-                </li>
-                <li class="form-item colx-6">
-                    <div class="forms-group">
-                        <input type="email" class="forms-control" placeholder="Email" />
-                    </div>
-                </li>
-                <li class="form-item colx-12">
-                    <div class="forms-group">
-                        <input type="text" class="forms-control" placeholder="Subject" />
-                    </div>
-                </li>
-                <li class="form-item colx-12">
-                    <div class="forms-group">
-                        <textarea name="" class="forms-control" id="" placeholder="Message"></textarea>
-                    </div>
-                </li>
-                <li class="form-item colx-12">
-                    <button type="submit" class="button">Send</button>
-                </li>
-            </ul>
+        <li>
+            <form class="contact-form" @onsubmit="Submit">
+                <ol class="main-row">
+                    <li class="form-item colx-6">
+                        <div class="forms-group">
+                            <input type="text" class="forms-control" @bind=_FormName placeholder="Name" />
+                        </div>
+                    </li>
+                    <li class="form-item colx-6">
+                        <div class="forms-group">
+                            <input type="email" class="forms-control" @bind=_FormAddress placeholder="Email" />
+                        </div>
+                    </li>
+                    <li class="form-item colx-12">
+                        <div class="forms-group">
+                            <input type="text" class="forms-control" @bind=_FormSubject placeholder="Subject" />
+                        </div>
+                    </li>
+                    <li class="form-item colx-12">
+                        <div class="forms-group">
+                            <textarea name="" class="forms-control" @bind=_FormMessage id="" placeholder="Message"></textarea>
+                        </div>
+                    </li>
+                    <li class="form-item colx-12">
+                        <button type="submit" class="button">Send</button>
+                    </li>
+                </ol>
+            </form>
         </li>
     </ul>
 </div>
 
 
 @code {
+    private InformationModel _information => _aboutService.getInfo();
 
+    private string? _FormName;
+    private string? _FormAddress;
+    private string? _FormSubject;
+    private string? _FormMessage;
+
+    private void Submit()
+    {
+        _service.SendMail(_information.Email!, _FormName!, _FormAddress!, _FormSubject!, _FormMessage!);
+    }
 }
